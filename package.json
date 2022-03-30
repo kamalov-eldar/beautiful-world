@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://kamalov-eldar.github.io/beautiful-world",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d beautiful-world"
   },
   "keywords": [],
   "author": "",
