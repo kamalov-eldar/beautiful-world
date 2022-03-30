@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh); /* идекс размеров высот и шир экран для адаптивной верстки*/
+  --gutter: 30px; /* отступы */
+  --side-small: 26; /* малая сторона */
+  --side-big: 36; /* большая сторона */
+  --transition: 0.75s cubic-bezier(0.75, 0.5, 0, 1);
+}
+@font-face {
+  font-family: raleway_c;
+  src: url(../fonts/raleway-v22-cyrillic-100.woff2);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: raleway_c;
+  src: url(../fonts/raleway-v22-cyrillic-300.woff2);
+  font-weight: 300;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: calc(var(--index) * 0.8); /* адаптивный размер шрифта */
+  font-family: raleway_c, sans-serif;
+  line-height: 1.75;
+  height: 4000px;
+  font-weight: 300;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  perspective: 1500px; /* активирует 3D-пространство внутри элемента, содержащего дочерние трансформированные элементы и применяется к ним */
+}
+
+.gallery {
+  transform-style: preserve-3d; /* Располагает элементы в трехмерном пространстве. */
+  height: 100%;
+}
+.frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition), opacity 0.75s ease;
+  will-change: transform; /* тип оптимизации может повысить отзывчивость страницы */
+  transform-style: preserve-3d; /* для отображения четкости шрифта */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 100;
+  text-transform: uppercase;
+  text-align: center;
+  width: min-content;
+}
+
+.frame h2 {
+  font-size: calc(var(--index) * 3.5);
+}
+
+.text-left > * {
+  /* > * всем потомкам  */
+  position: relative;
+  right: 18vw;
+}
+
+.text-right > * {
+  /* > * всем потомкам  */
+  position: relative;
+  left: 18vw;
+}
+
+.frame h3 {
+  font-size: calc(var(--index) * 2.5);
+  line-height: 1;
+}
+
+.frame-media {
+  position: relative;
+  width: calc(var(--index) * var(--side-small));
+  height: calc(var(--index) * var(--side-big));
+  background-position: center;
+  background-size: cover;
+}
+
+.frame-media_left {
+  right: calc(var(--side-small) / 2 * var(--index) + var(--gutter)); /* сдвиг влево */
+}
+.frame-media_right {
+  left: calc(var(--side-small) / 2 * var(--index) + var(--gutter)); /* сдвиг влево */
+}
+/* frame_bg - фрэйм прозрачный */
+.frame_bg {
+  background-color: rgb(0 0 0 / 0.8);
+}
+
+video.frame-media {
+  width: calc(var(--index) * var(--side-big));
+  height: calc(var(--index) * var(--side-small));
+}
+video.frame-media_right {
+  left: calc(var(--side-big) / 2 * var(--index) + var(--gutter)); /* сдвиг влево */
+}
+video.frame-media_left {
+  right: calc(var(--side-big) / 2 * var(--index) + var(--gutter)); /* сдвиг влево */
+}
+
+.last-frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition), opacity 0.75s ease;
+  will-change: transform; /* тип оптимизации может повысить отзывчивость страницы */
+  transform-style: preserve-3d; /* для отображения четкости шрифта */
+}
+.last-frame h3 {
+  width: 100%;
+}
+
+.frame p {
+  max-width: 30vw;
+  margin-top: 3vh;
+}

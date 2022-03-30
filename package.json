@@ -1,0 +1,16 @@
+{
+  "name": "beautiful-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://kamalov-eldar.github.io/beautiful-world",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
